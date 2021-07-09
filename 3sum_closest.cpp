@@ -12,10 +12,9 @@ using namespace std;
 
 int threeSumClosest(vector<int> nums, int target){
 	int n = nums.size();
-	int ans;
 	sort(nums.begin(), nums.end());
 	int j, k, sum = nums[0]+nums[1] + nums[n-1];
-	ans = sum;	
+	int ans = sum;	
 	for(int i=0;i<n-2;i++){
 		j = i+1;
 		k = n -1;
