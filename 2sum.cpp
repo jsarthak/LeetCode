@@ -1,3 +1,6 @@
+// Find the indices of the two numbers in the array
+// whose sum is equal to the target.
+
 #include<bits/stdc++.h>
 using namespace std;
 

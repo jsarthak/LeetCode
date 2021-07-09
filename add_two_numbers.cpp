@@ -15,15 +15,21 @@ typedef struct ListNode{
 } ListNode;
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2){
+	// if both heads null return null
 	if (l1 == NULL && l2 == NULL)
 		return NULL;
 
+	// variable to store carry
 	int  carry = 0;
+
+	// initialize the head of result list
 	ListNode* result = new ListNode();
 	ListNode* temp = result;
 
+	// iterate while any of l1 or l2 is not null
 	while (l1 || l2){
 		int sum = carry + (l1?l1->val:0) + (l2?l2->val:0);
+		
 		temp -> val = sum%10;
         carry = sum/10;
 		
