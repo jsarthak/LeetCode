@@ -15,8 +15,7 @@ using namespace std;
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include<bits/stdc++.h>
-using namespace std;
+
 vector<int> largestValues(TreeNode* root){
 	if (root == NULL){
 		return {};
