@@ -1,10 +1,11 @@
 // Find the indices of the two numbers in the array
 // whose sum is equal to the target.
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-vector<int> TwoSum(vector<int>& nums, int target){
+vector<int> TwoSum(vector<int> &nums, int target)
+{
 	// a variable that will store the complement of the current number
 	int complement;
 	// map to store the complement and its index
@@ -15,11 +16,15 @@ vector<int> TwoSum(vector<int>& nums, int target){
 	// if the complement in the complements map return the current
 	// index and the complement's index
 	// else add the current number as key and current index as val
-	for(int i = 0; i < nums.size(); i++){
+	for (int i = 0; i < nums.size(); i++)
+	{
 		complement = target - nums[i];
-		if (complements.count(complement)){
+		if (complements.count(complement))
+		{
 			return {i, complements[complement]};
-		} else {
+		}
+		else
+		{
 			complements.insert({nums[i], i});
 		}
 	}
@@ -28,13 +33,15 @@ vector<int> TwoSum(vector<int>& nums, int target){
 	return {-1, -1};
 }
 
-int main(){
+int main()
+{
 	// accept an input equal to nums size
 	int n;
 	cin >> n;
 	// while n add elements to a array
 	vector<int> nums;
-	while(n--){
+	while (n--)
+	{
 		int k;
 		cin >> k;
 		nums.push_back(k);

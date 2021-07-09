@@ -13,30 +13,48 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int maxDepth(TreeNode* root){
-	if (root == NULL){
+struct TreeNode
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+int maxDepth(TreeNode *root)
+{
+	if (root == NULL)
+	{
 		return NULL;
 	}
 
-	queue<TreeNode*> q;
+	queue<TreeNode *> q;
 	q.push(root);
 	q.push(NULL);
 	int ans = 0;
-	while(!q.empty()){
-		TreeNode* current = q.front();
+	while (!q.empty())
+	{
+		TreeNode *current = q.front();
 		q.pop();
-		if(current == NULL){
-			ans ++;
-			if (q.size() > 0){
+		if (current == NULL)
+		{
+			ans++;
+			if (q.size() > 0)
+			{
 				q.push(NULL);
 			}
-		} else{
-			if (current -> left) q.push(current->left);
-			if (current -> right )q.push(current -> right);
+		}
+		else
+		{
+			if (current->left)
+				q.push(current->left);
+			if (current->right)
+				q.push(current->right);
 		}
 	}
 	return ans;

@@ -6,36 +6,44 @@ Return the sum of the three integers.
 You may assume that each input would have exactly one solution.
 */
 
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int threeSumClosest(vector<int> nums, int target){
+int threeSumClosest(vector<int> nums, int target)
+{
 	int n = nums.size();
 	sort(nums.begin(), nums.end());
-	int j, k, sum = nums[0]+nums[1] + nums[n-1];
-	int ans = sum;	
-	for(int i=0;i<n-2;i++){
-		j = i+1;
-		k = n -1;
-		while(j<k){
-			sum  = nums[i] + nums[j] + nums[k];
-			if (sum < target){
+	int j, k, sum = nums[0] + nums[1] + nums[n - 1];
+	int ans = sum;
+	for (int i = 0; i < n - 2; i++)
+	{
+		j = i + 1;
+		k = n - 1;
+		while (j < k)
+		{
+			sum = nums[i] + nums[j] + nums[k];
+			if (sum < target)
+			{
 				j++;
-			} else {
+			}
+			else
+			{
 				k--;
 			}
-			if (abs(sum-target) < abs(ans-target) ) ans =sum;
+			if (abs(sum - target) < abs(ans - target))
+				ans = sum;
 		}
 	}
 	return ans;
 }
 
-int main(){
+int main()
+{
 	int n;
 	cin >> n;
 	vector<int> nums;
-	while( n--){
+	while (n--)
+	{
 		int a;
 		cin >> a;
 		nums.push_back(a);
