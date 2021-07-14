@@ -34,6 +34,33 @@ bool BinarySearch(vector<int> &row, int target)
 	return false;
 }
 
+// More Efficient
+bool searchMatrixFaster(vector<vector<int>> &matrix, int target)
+{
+	int m = matrix.size();
+	int n = matrix[0].size();
+	int i = 0;
+	int j = n - 1;
+
+	while (i < m && j >= 0 && matrix[i][j] != target)
+	{
+		if (target > matrix[i][j])
+		{
+			i++;
+		}
+		else
+		{
+			j--;
+		}
+	}
+
+	if (i < m && j >= 0)
+	{
+		return true;
+	}
+	return false;
+}
+
 bool searchMatrix(vector<vector<int>> &matrix, int target)
 {
 	for (int i = 0; i < matrix.size(); i++)
